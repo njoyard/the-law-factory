@@ -48,27 +48,32 @@
         <div id="preload"></div>
         <div id="viz" ng-cloak ng-click="focusSubject($event)"
           class="
-          {{ data.colonnes }}
-          {{ article ? 's-focus-mode' : '' }}
-          {{ focusGroupe || focusSort ? 'a-focus-mode' : '' }}
+            {{ article ? 's-focus-mode' : '' }}
+            {{ focusGroupe || focusSort ? 'a-focus-mode' : '' }}
           ">
           <div id="sujets">
             <div class="sujet {{ $first ? 'first-art-s' : '' }} {{ article === sujet.article ? 'focus' : '' }}"
+              ng-model-options="{ debounce: 100 }"
               ng-repeat="sujet in data.sujets track by sujet.article" data-article="{{ sujet.article }}">
               <div class="titre">
                 <span class="titre-link" ng-click="focusSubject($event, sujet.article)">{{ sujet.titre }}</span>
               </div>
-              <div class="liste-amendements">
+              <div class="liste-amendements" style="height: {{ sujet.height }}px;">
                 <div
                   class="
-                  amendement
-                  amendement-{{ amdt.id_api }}
-                  amendement-num-{{ amdt.numero }}
-                  {{ $parent.$first &amp;&amp; $first ? 'first-art' : '' }}
-                  {{ focusGroupe &amp;&amp; amdt.groupe === focusGroupe ? 'focus' : '' }}
-                  {{ focusSort &amp;&amp; amdt.sort === focusSort ? 'focus' : '' }}
+                    amendement
+                    amendement-{{ amdt.id_api }}
+                    amendement-num-{{ amdt.numero }}
+                    {{ $parent.$parent.$first && $parent.$first && $first ? 'first-art' : '' }}
+                    {{ focusGroupe && amdt.groupe === focusGroupe ? 'focus' : '' }}
+                    {{ focusSort && amdt.sort === focusSort ? 'focus' : '' }}
                   "
-                  style="background-color: {{ amdt.color }}; background-image: url({{ amdt.sort_image }});"
+                  style="
+                    background-color: {{ amdt.color }};
+                    background-image: url({{ amdt.sort_image }});
+                    top: {{ amdt.pos.top }}px;
+                    left: {{ amdt.pos.left }}px;
+                  "
                   ng-click="selectAmdt(amdt)"
                   ng-mousemove="repositionTooltip($event)"
                   ng-repeat="amdt in sujet.amendements track by amdt.id_api">
@@ -170,3 +175,6 @@
     </div>
   </div>
 </div>
+
+<div id="probe"><div id="inside"></div></div>
+<script type="text/javascript" src="modules/amendements/amendements.viz.js"></script>

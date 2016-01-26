@@ -371,6 +371,15 @@ body{
     fill: #FD5252;
 }
 
+.amendements #probe {
+    position: absolute;
+    left: -1000px;
+
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
+}
+
 .amendements .viz-container, .navettes .viz-container{
     height: 100%;
 }
@@ -386,7 +395,7 @@ body{
     -o-transition: opacity 0.25s ease-in-out;
     transition: opacity 0.25s ease-in-out;
 }
-.amendements .colonnes .sujet {
+/*.amendements .colonnes .sujet {
     width: 50%;
     display: inline-block;
 }
@@ -395,7 +404,7 @@ body{
 }
 .amendements .colonnes .sujet:nth-child(2n) {
     padding-left: 15px;
-}
+}*/
 .amendements .sujet .titre {
     font-size: 0.85em;
     margin-bottom: 1px;
@@ -410,12 +419,11 @@ body{
     opacity: 1;
 }
 .amendements .liste-amendements {
-    display: flex;
-    flex-flow: row wrap;
+    position: relative;
     background-image: url(../img/filler.png);
 }
 .amendements .amendement {
-    display: inline-block;
+    position: absolute;
     width: 20px;
     height: 20px;
     margin: 0;
