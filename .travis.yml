@@ -1,0 +1,13 @@
+script:
+- true
+deploy:
+- provider: openshift
+  user: joyard.nicolas@gmail.com
+  password:
+    secure: "NQggMpT87rjd2FCOEnQwchOblhQ2FNLKlri7NIgzzJEkeWiRssfR4SDEzkaBNkd4vov4XHutg3KQF2ajlcN6Q2UhAWE4bk7v+niiG7wpHVOUHQporDUql9TBdAhejtQGU4KjNWlOoYNtRVqIGW4z1InmpJg9m3fHmMiSAJYX7Yf4nF+vYO8lDKQrKc/7056RWS8q6+Ktj/ayCqiQQZBmmfJeMlgMln7YTygGIHY8lcRYDJqJsvRXuZKEv9XK86jwvs1gS67PGXLD2N9IZkAdlrVf9vDsOhu9o9kvmTMIcg3I91g8UgHV40R3010LqcIJqWi1JKhIx/HHSUEzKO8qDvLXOak2JIBp9vLjezBbdae2B2g877cVDWwWx/dYT+xnU0iCLFpksoxy/be9mkFLj+qGl/1Qv00uOoFf+javz/O696wSb/mVAE3lHlP5HRXuPNsJ0E28GuGZQ8cibJrzTdEYybX/MDeQCK6yiwlJUGllINhZrhsP9Qfry2XeZY2aSEXskUlD3B0EywcApBaxQ/AgCHyaAzNmf1+DKMngfo4bGxF2LlgK+SEvetejdSLPhs+NmUmC12piDyG6PPvOvhEDzDLebdxnH+nVllsjoCLWeU0t18fnAvD0/ngMSE3+a52LPZfhKg09F8wfvNcWuzZCoI/rLoLYwle8l4gCqVE="
+  app: lfdl
+  domain: njoyard
+  deployment_branch: openshift
+  on:
+    repo: njoyard/the-law-factory
+    branch: openshift
